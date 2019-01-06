@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dest=/cygdrive/d
+
+echo "Deploying: songs"
+cp songs/*.bin $dest
+
+echo "Deploying: modules"
+cp *.mpy $dest
+
+echo "Deploying: code.py"
+cp code.py $dest
