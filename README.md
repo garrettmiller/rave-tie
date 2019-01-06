@@ -1,6 +1,9 @@
 # Holi-Tie
 Code for the holiday tie. Written in Python using the CircuitPython platform for the Circuit Playground Express microcontroller. The idea behind the Holi-Tie came from the [Ampli-Tie](https://learn.adafruit.com/led-ampli-tie) by Beck Stern. The Holi-Tie is an improvement in that it has multiple NeoPixel animations, color and speed interactivity, and holiday music.
 
+Video: https://youtu.be/t3gc5sFV1Mk
+Instructable: xxx
+
 # How To Use It
 <yet to write>
 
