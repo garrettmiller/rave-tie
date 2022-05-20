@@ -1,9 +1,6 @@
 #!/bin/bash
 
-dest=/cygdrive/d
-
-echo "Deploying: songs"
-cp songs/*.bin $dest
+dest=/Volumes/CIRCUITPY/
 
 echo "Deploying: modules"
 cp *.mpy $dest

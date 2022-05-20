@@ -1,7 +1,8 @@
+# Rave-Tie Main Python File
+# (c) 2022 Garrett Miller
+# Heavily based on work that is copyright (c) 2019 Gary Fong
+# 
 # The MIT License (MIT)
-#
-# Copyright (c) 2019 Gary Fong
-#
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
 # in the Software without restriction, including without limitation the rights
@@ -23,16 +24,14 @@
 import gc
 
 from neopixel import NeoPixel
-from board import D4, D5, D10
+from board import D4, A3
 
 from button import Button
 
 import pixelsoff
-#import vumeter
-import stairs
-import twinkle
-
-import music
+import vumeter
+#import stairs
+#import twinkle
 
 print("gc: " + str(gc.isenabled()))
 
@@ -54,43 +53,24 @@ def next_led_animation(jump_to_animation = -1):
     led_animations[active_led_animation].begin()
 
 def button_a_pressed():
-
-    # First, turn off music if it is playing
-    if music.is_playing():
-        music.stop()
-
     next_led_animation()
 
-def button_b_pressed():
-
-    # Frist, turn off the led animation if it is playing
-    if active_led_animation != 0:
-        next_led_animation(0)
-
-    if music.is_playing():
-        music.stop()
-    else:
-        music.play()
-
-pixels = NeoPixel(D10, 15, brightness=0.1, auto_write=False)
+#Arguments are data port, number of LEDs, brightness, auto-write
+pixels = NeoPixel(A3, 1, brightness=0.1, auto_write=False)
 
 led_animations = [
     pixelsoff.PixelsOff(pixels),
-#    vumeter.VuMeter(pixels, 100, 400)
-    stairs.Stairs(pixels),
-    twinkle.Twinkle(pixels)
+    vumeter.VuMeter(pixels, 100, 400)#,
+    #stairs.Stairs(pixels),
+    #twinkle.Twinkle(pixels)
 ]
-music = music.Music()
 
 buttonA = Button(D4, button_a_pressed);
-buttonB = Button(D5, button_b_pressed);
 
 pixels.fill(0)
 pixels.show()
 
 while True:
     buttonA.read()
-    buttonB.read()
     led_animations[active_led_animation].update()
-    music.update()
     gc.collect()

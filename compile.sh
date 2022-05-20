@@ -1,9 +1,5 @@
 #!/bin/bash
-compiler=~/development/circuitpython/mpy-cross-3.x-windows.exe
-
-cd songs
-python3 ./convert_to_binary.py
-cd ..
+compiler=./mpy-cross-7.3-macos.bin
 
 for f in *.py; do
     if [[ $f != code.py ]]; then
