@@ -30,8 +30,8 @@ from button import Button
 
 import pixelsoff
 import vumeter
-#import stairs
-#import twinkle
+import stairs
+import twinkle
 
 print("gc: " + str(gc.isenabled()))
 
@@ -56,13 +56,13 @@ def button_a_pressed():
     next_led_animation()
 
 #Arguments are data port, number of LEDs, brightness, auto-write
-pixels = NeoPixel(A3, 1, brightness=0.1, auto_write=False)
+pixels = NeoPixel(A3, 60, brightness=0.5, auto_write=False)
 
 led_animations = [
     pixelsoff.PixelsOff(pixels),
-    vumeter.VuMeter(pixels, 100, 400)#,
-    #stairs.Stairs(pixels),
-    #twinkle.Twinkle(pixels)
+    vumeter.VuMeter(pixels, 100, 400),
+    stairs.Stairs(pixels),
+    twinkle.Twinkle(pixels)
 ]
 
 buttonA = Button(D4, button_a_pressed);
