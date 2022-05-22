@@ -56,7 +56,7 @@ def button_a_pressed():
     next_led_animation()
 
 #Arguments are data port, number of LEDs, brightness, auto-write
-pixels = NeoPixel(A3, 60, brightness=0.5, auto_write=False)
+pixels = NeoPixel(A3, 6, brightness=0.5, auto_write=False)
 
 led_animations = [
     pixelsoff.PixelsOff(pixels),
